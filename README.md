@@ -4,6 +4,8 @@
 
 坐标原点落在**天府广场**（30.6577°N，104.0657°E），北向为 −Z，**1 个场景单位 = 100 米**，垂直方向 1:1 不夸张。所以这张沙盘是可量化的：绕城高速半径 13.5 km 就是 135 个单位，成都绿地中心 468 就是 468 米。
 
+> **在线体验**：https://xxlchaoren.github.io/chengdu-3d-sandbox/
+
 | 夜景全景（蓝调时刻 20:12） | 日间沙盘视角 | 地标飞入：天府双塔 |
 |---|---|---|
 | ![夜景](docs/images/night-panorama.png) | ![日间](docs/images/day-sandbox.png) | ![双塔](docs/images/landmark-twin-towers.png) |
@@ -89,6 +91,19 @@ docs/       PROMPT.md（生成提示词）· REFERENCES.md（调研来源）· D
 ## 测试
 
 `npm test` 覆盖四类断言：地理投影与环带分区正确性、几何实例数量与内存边界、**离线可运行性**（源码内不得出现任何外部 URL/CDN/字体引用）、GLSL 保留字扫描（ANGLE 会静默拒绝整段片元着色器，导致图层消失，只留一条 console 报错）。
+
+## 部署
+
+已发布到 GitHub Pages：https://xxlchaoren.github.io/chengdu-3d-sandbox/
+
+`base: './'` 让产物能直接跑在项目页子路径下，无需改路径前缀。站点内容放在孤儿分支 `gh-pages`（只有 `index.html` + `assets/` + `.nojekyll`），由本地 `npm run build` 后推送；`.github/workflows/deploy.yml` 是等价的 CI 版本（`npm ci → npm test → npm run build → upload-pages-artifact`），构建前置跑测试，因此线上版本不可能带着回归发布。
+
+重新发布：
+
+```bash
+npm run build
+# 用 dist/ 内容重建 gh-pages 分支并推送，然后在 Pages 设置里触发一次 build
+```
 
 ## 许可
 
