@@ -22,7 +22,7 @@ npm test             # 22 项自动化测试
 npm run perf         # 离线统计建筑格覆盖率、生成耗时、几何量
 ```
 
-要求：Node ≥ 22（测试与 `perf` 直接跑 TS，依赖原生 type stripping），支持 WebGL2 的浏览器。
+要求：Node **≥ 23.6**（推荐 24）——`npm test` 与 `npm run perf` 直接跑 `.ts`，依赖 Node 原生类型剥离且无需 flag；支持 WebGL2 的浏览器。
 
 ## 为什么一眼就是成都
 
