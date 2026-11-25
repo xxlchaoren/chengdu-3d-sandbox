@@ -1,0 +1,23 @@
+{
+  "name": "chengdu-3d-sandbox",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "成都 3D 城市沙盘 — Three.js 程序化生成的环状放射路网城市数字沙盘",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4420",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4421",
+    "test": "node --test tests/geo.test.ts tests/mesh.test.ts tests/offline.test.ts tests/shader.test.ts",
+    "perf": "node scripts/perf.ts"
+  },
+  "dependencies": {
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/three": "^0.180.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.12"
+  }
+}
